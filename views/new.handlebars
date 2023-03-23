@@ -1,0 +1,142 @@
+<!-- new -->
+<h1 class="restaurant-show-title mb-0">新增餐廳</h1>
+<div class="container mt-0 mb-5 p-0">
+  <div class="row mt-0">
+    <div class="col-12 col-md-10 mx-auto">
+
+      <!-- main container -->
+      <div class="col-12 col-lg-10 col-xl-8 mx-auto">
+        <!-- back button -->
+        <a href="/restaurants">
+          <button class="btn btn-light btn-sm border border-secondary mb-2" type="button">返回</button>
+        </a>
+        <div class="card">
+          <div class="card-body">
+            <!-- form -->
+            <form method="POST" action="/restaurants/new">
+
+              <p class="text-danger">必填資訊 Required</p>
+              <!--名稱-->
+              <div class="row mb-3 g-2">
+                <label for="name" class="col-md-4 col-form-label">
+                  餐廳名稱
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="友朋小吃店" required>
+                </div>
+              </div>
+
+              <!--類型-->
+              <div class="row mb-3 g-2">
+                <label for="category" class="col-md-4 col-form-label">
+                  類型
+                </label>
+                <div class="col-md-8">
+                  <select class="form-select" name="category" id="category">
+                    <option value="" style="color:beige">請選擇餐廳類型</option>
+                    <option value="美式料理">美式</option>
+                    <option value="日式料理">日式</option>
+                    <option value="台式料理">台式</option>
+                    <option value="中東料理">中東</option>
+                    <option value="義式料理">義式</option>
+                    <option value="酒吧料理">酒吧</option>
+                    <option value="咖啡料理">咖啡</option>
+                    <option value="小吃料理">小吃</option>
+                    <option value="其它類型">其他</option>
+                  </select>
+                </div>
+              </div>
+
+              <!--評價-->
+              <div class="row mb-3 g-2">
+                <label for="rating" class="col-md-4 col-form-label">
+                  評價
+                </label>
+                <div class="col-md-8">
+                  <input type="number" name="rating" class="form-control" id="rating" min="0" max="5" step="0.1"
+                    placeholder="0-5" required>
+                </div>
+              </div>
+
+              <!--介紹-->
+              <div class="row mb-3 g-2">
+                <label for="description" class="col-md-4 col-form-label">
+                  餐廳介紹
+                </label>
+                <div class="col-md-8">
+                  <textarea name="description" class="form-control" id="description" rows="5" placeholder="簡單的介紹一下餐廳"
+                    required></textarea>
+                </div>
+              </div>
+
+
+              <!-- optional -->
+              <hr>
+              <p class="text-secondary">非必填資訊 Optional</p>
+              <!--英文名稱-->
+              <div class="row mb-3 g-2">
+                <label for="name_en" class="col-md-4 col-form-label">
+                  英文名稱
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="name_en" class="form-control" id="name_en" placeholder="Yo Bon">
+                </div>
+              </div>
+
+              <!--照片-->
+              <div class="row mb-3 g-2">
+                <label for="image" class="col-md-4 col-form-label">
+                  餐廳照片連結
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="image" class="form-control" id="image"
+                    placeholder="https://my-awesome-restaurants/uploads/image/file/001.jpg">
+                </div>
+              </div>
+
+              <!--地址-->
+              <div class="row mb-3 g-2">
+                <label for="location" class="col-md-4 col-form-label">
+                  地址
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="location" class="form-control" id="location" placeholder="台北市小朋友區三段 666號">
+                </div>
+              </div>
+
+              <!--電話-->
+              <div class="row mb-3 g-2">
+                <label for="phone" class="col-md-4 col-form-label">
+                  電話
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="phone" class="form-control" id="phone" placeholder="02 1234 5678">
+                </div>
+              </div>
+
+              <!--Google map-->
+              <div class="row mb-3 g-2">
+                <label for="google_map" class="col-md-4 col-form-label">
+                  Google map 連結
+                </label>
+                <div class="col-md-8">
+                  <input type="text" name="google_map" class="form-control" id="google_map"
+                    placeholder="https://goo.gl/maps/...">
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <button class="btn btn-success mt-2" type="submit" style="width: 100%;">
+                新增餐廳
+              </button>
+            </form>
+            <!-- form end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--footer-->
+<div class="" style="height: 30px;">
+</div>
