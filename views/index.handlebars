@@ -3,9 +3,19 @@
 <div class="container search-bar">
   <div class="search-bar-outer">
     <div class="search-bar-inner">
-      <!-- search bar -->
-      <form action="/search">
-        <h4 class="mb-2">尋找餐廳：</h4>
+
+      <!-- search bar form -->
+      <form action="/restaurants/search" method="GET">
+        <div class="d-flex justify-content-between mb-3">
+          <div class="h4">尋找餐廳：</div>
+          <!-- create new -->
+          <a class="float-end" href="/restaurants/new">
+            <button type="button" class="btn btn-primary">
+              <i class="fa-solid fa-plus"></i>
+              新增餐廳
+            </button>
+          </a>
+        </div>
         <div class="input-group">
           <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
             value="" aria-describedby="search-button">
@@ -14,10 +24,6 @@
           </div>
         </div>
       </form>
-      <!-- create new -->
-      <a href="/restaurants/new">
-        <button class="btn btn-primary mt-2" style="width: 100%;">新增餐廳</button>
-      </a>
     </div>
   </div>
 </div>
@@ -25,6 +31,8 @@
 <!-- restaurant cards -->
 <div class="container mt-5">
   <div class="row">
+
+    {{#if restaurants}}
     <div class="col-md-10 col-12 mx-auto">
       <div class="row row-cols-sm-3">
 
@@ -63,6 +71,12 @@
         </div>
         {{/each}}
 
+        {{else}}
+        <div class="d-flex justify-content-center">
+          <h1>抱歉，找不到您要的餐廳</h1>
+        </div>
+        {{/if}}
+
         <!-- Delete Modal -->
         <div class="modal fade" id="deleModal" tabindex="-1" aria-labelledby="deleModal" aria-hidden="true">
           <div class="modal-dialog">
@@ -86,4 +100,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<!--footer-->
+<div class="" style="height: 60px;">
 </div>

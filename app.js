@@ -66,6 +66,25 @@ app.get('/restaurants/new', (req, res) => {
   res.render('new')
 })
 
+// Search 查詢 (這route必須寫在 "瀏覽一個" 前面)
+app.get('/restaurants/search', (req, res) => {
+  const keyword = req.query.keyword.trim()
+  res.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+  Restaurant.find()
+    .lean()
+    .then(restaurants => {
+      // filter with keyword
+      const results = restaurants.filter(restaurant => {
+        return (restaurant.name.toLowerCase().includes(keyword.toLowerCase()) ||
+          restaurant.category.includes(keyword))
+      })
+      res.render('index', { restaurants: results })
+    })
+    .catch(error => {
+      console.log(error)
+    })
+})
+
 // 瀏覽一個
 app.get('/restaurants/:id', (req, res) => {
   const id = req.params.id
@@ -122,7 +141,6 @@ app.get('/restaurants/:id/edit', (req, res) => {
     })
 })
 
-
 // 修改 POST
 app.post('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
@@ -171,6 +189,7 @@ app.post('/restaurants/:id/delete', (req, res) => {
       console.log(error)
     })
 })
+
 
 
 // server start and listen
